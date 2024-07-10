@@ -9,14 +9,11 @@ export default function Item(props){
     const navigation=useNavigation();
     let [numColumns, setNumColumns] = useState(2);
     const data=props.data;
-    console.log(data);
+    
+    
 
    const navigateToDescriptionScreen=(item)=>{
-        // item.persist();
-       
-        
         navigation.navigate('DescriptionScreen',{image:item.image,description:item.description,title:item.title,price:item.price});
-        
    };
 
     return(
@@ -55,7 +52,7 @@ const styles= StyleSheet.create({
 
     name:{
         fontWeight:"bold",
-        fontFamily:"Quicksand",
+        fontFamily:"Quicksand-Bold",
         
 
     },

@@ -4,7 +4,7 @@ import { useFonts } from 'expo-font';
 export default function OurStory(){
 
     const [loaded,error]=useFonts({
-        'Quicksand-Regular':require('../assets/fonts/Quicksand-Regular.otf'),
+        'Quicksand-Bold':require('../assets/fonts/Quicksand-Bold.otf'),
       });
 
     return(
@@ -30,8 +30,9 @@ const styles= StyleSheet.create({
     },
     text:{
         fontSize:25,
-        fontFamily:'Quicksand-Regular',
+        fontFamily:'Quicksand-Bold',
         marginBottom:20,
+        fontWeight:'bold',
     }
 
 

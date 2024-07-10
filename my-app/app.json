@@ -27,7 +27,7 @@
       [
       "expo-font",
       {
-        "fonts":["./assets/fonts/Quicksand-Regular.otf"]
+        "fonts":["./assets/fonts/Quicksand-Regular.otf","./assets/fonts/Quicksand-Bold.otf"]
       }
     ]
   ]
