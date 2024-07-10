@@ -28,7 +28,7 @@ export default function Item(props){
                     <TouchableOpacity onPress={()=>navigateToDescriptionScreen(item)}>
                         <Image source={{uri : item.image}} style={{height:150,weight:150,borde:1,borderRadius:10}} />
                         <Text style={styles.name}>{item.title}</Text>
-                        <Text style={styles.description}>{item.description}</Text>
+                        <Text style={styles.description}>{item.description.substring(0,100)}</Text>
                         <Text style={styles.price}>${item.price}</Text>
                         <Move name={item.title} description={item.description} image={item.image} price={item.price} id={item.id}/>
                     </TouchableOpacity>
@@ -46,6 +46,7 @@ export default function Item(props){
 
 const styles= StyleSheet.create({
     container:{
+        marginBottom:20,
 
 
     },
@@ -53,6 +54,8 @@ const styles= StyleSheet.create({
     name:{
         fontWeight:"bold",
         fontFamily:"Quicksand-Bold",
+        marginBottom:10,
+        marginTop:20,
         
 
     },
@@ -63,6 +66,8 @@ const styles= StyleSheet.create({
     price:{
         fontFamily:"Quicksand",
         color:'orange',
+        marginTop:10,
+        marginBottom:20,
         
 
     }
