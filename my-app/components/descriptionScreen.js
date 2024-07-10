@@ -1,4 +1,4 @@
-import {View,Text,Image,StyleSheet} from 'react-native';
+import {View,Text,Image,StyleSheet,ScrollView} from 'react-native';
 import { useRoute } from '@react-navigation/native';
 import { useFonts } from 'expo-font';
 
@@ -15,20 +15,21 @@ export default function DescriptionScreen(){
   });
    
     return(
-        <View style={{backgroundColor:'white'}}>
+        <ScrollView style={{backgroundColor:'white'}}>
             <TopHomeScreen/>
 
             <View style={{marginTop:20,height:100}}>
             
-                    <Image source={{uri : image}} style={{height:250,weight:250,borde:1,borderRadius:30}} />
+                    <Image source={{uri : image}} style={{height:450,weight:450,borde:1,borderRadius:30}} />
                     <Text style={styles.name}>{title}</Text>
+                    <Text> {description.substring(0,50)}</Text>
                     <Text style={styles.price}>${price}</Text>
                     <Text style={styles.description}>{description}</Text>
                     
             </View>
             
             
-        </View>
+        </ScrollView>
     )
 }
 
