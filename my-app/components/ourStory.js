@@ -21,12 +21,12 @@ export default function OurStory(){
 const styles= StyleSheet.create({
     container:{
         flexDirection: 'row',
-        gap:200,
+        gap:180,
         marginTop:20,
     },
     filter:{
         flexDirection: 'row',
-        gap:10,
+        gap:5,
     },
     text:{
         fontSize:25,

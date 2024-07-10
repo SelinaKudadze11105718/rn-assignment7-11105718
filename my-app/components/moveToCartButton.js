@@ -47,24 +47,14 @@ export default function Move(props) {
 
 
     const gotocart= function gotoCart(){
-        
         saveItem();
-        // retrieveAllItems();
-
         return navigation.navigate('Cart');
-        
-
      }
 
  
     return (
-        // <View>
-        //     <Text>SOME</Text>
-        // </View>
-
-
-            <Pressable onPress={gotocart} style={{position:'absolute',left:135,top:190}}>
-                    <Image source={require("../assets/add_circle.png")}/>
+            <Pressable onPress={gotocart} style={{position:'absolute',left:140,top:210}}>
+                    <Image source={require("../assets/add_circle.png")} style={{height:40,width:40}}/>
             </Pressable>
        
         
