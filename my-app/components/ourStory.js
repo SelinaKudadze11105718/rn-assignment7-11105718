@@ -1,6 +1,12 @@
 import {View,Text,StyleSheet,Image} from 'react-native';
+import { useFonts } from 'expo-font';
 
 export default function OurStory(){
+
+    const [loaded,error]=useFonts({
+        'Quicksand-Regular':require('../assets/fonts/Quicksand-Regular.otf'),
+      });
+
     return(
         <View style={styles.container}>
             <Text style={styles.text}>OUR STORY</Text>
@@ -23,9 +29,8 @@ const styles= StyleSheet.create({
         gap:10,
     },
     text:{
-        fontFamily:'../assets/fonts(reactNative)/Alterglam-UltraLightItalic.otf',
-        fontSize:20,
-        fontFamily:'Quicksand-Light',
+        fontSize:25,
+        fontFamily:'Quicksand-Regular',
         marginBottom:20,
     }
 

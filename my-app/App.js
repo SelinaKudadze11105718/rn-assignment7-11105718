@@ -3,6 +3,7 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createDrawerNavigator } from '@react-navigation/drawer';
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View,ScrollView } from 'react-native';
+import { useFonts } from 'expo-font';
 
 // import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
@@ -18,6 +19,9 @@ import DescriptionScreen from "./components/descriptionScreen";
 const Drawer = createDrawerNavigator();
 
 export default function App() {
+  const [loaded,error]=useFonts({
+    'Quicksand-Regular':require('./assets/fonts/Quicksand-Regular.otf'),
+  });
 
   return (
       <NavigationContainer>

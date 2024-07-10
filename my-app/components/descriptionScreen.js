@@ -1,5 +1,6 @@
 import {View,Text,Image,StyleSheet} from 'react-native';
 import { useRoute } from '@react-navigation/native';
+import { useFonts } from 'expo-font';
 
 
 
@@ -8,10 +9,10 @@ import TopHomeScreen from './topHomeScreen';
 export default function DescriptionScreen(){
     const route = useRoute();
     const {image,description,price,title}=route.params || {};
-   console.log(image);
-   console.log(price);
-   console.log(description);
-   console.log(title);
+   
+   const [loaded,error]=useFonts({
+    'Quicksand-Regular':require('../assets/fonts/Quicksand-Regular.otf'),
+  });
    
     return(
         <View style={{backgroundColor:'white'}}>
@@ -40,13 +41,14 @@ const styles= StyleSheet.create({
         fontSize:20,
         marginTop:10,
         textAlign: 'center',
+        fontFamily: 'Quicksand-Regular',
 
     },
     description:{
         textAlign: 'justify',
         left:10,
         right:20,
-        
+        fontFamily: 'Quicksand-Regular',
         marginBottom:10,
         fontSize:16,
         marginTop:10,
@@ -59,5 +61,6 @@ const styles= StyleSheet.create({
         fontSize:20,
         marginTop:10,
         textAlign: 'center',
+        fontFamily: 'Quicksand-Regular',
     },
 });

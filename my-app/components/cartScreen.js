@@ -78,9 +78,9 @@ export default function CartScreen({route,navigation}){
                                 <Image source={{uri:item?.Picture}} style={{marginLeft:5,height:200,width:200}}/>
                                 <View style={{flexDirection:'column'}}>
                                 <View style={{marginTop:0,height:100,width:100}}>
-                                    <Text style={{fontWeight:'bold',marginTop:10,fontSize:14}}>{item?.name}</Text>
-                                    <Text style={{marginTop:10,color:'#808080',fontSize:12,}}>{item?.Description}</Text>
-                                    <Text style={{marginTop:10,color:'orange',fontSize:12, }}>${item?.Price}</Text>
+                                    <Text style={{fontWeight:'bold',marginTop:10,fontSize:14,fontFamily:'Quicksand-Regular'}}>{item?.name}</Text>
+                                    <Text style={{marginTop:10,color:'#808080',fontSize:12,fontFamily:'Quicksand-Regular'}}>{item?.Description}</Text>
+                                    <Text style={{marginTop:10,color:'orange',fontSize:12,fontFamily:'Quicksand-Regular' }}>${item?.Price}</Text>
                                 </View>
                                
                                     
