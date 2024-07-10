@@ -26,6 +26,7 @@ const styles= StyleSheet.create({
         fontFamily:'../assets/fonts(reactNative)/Alterglam-UltraLightItalic.otf',
         fontSize:20,
         fontFamily:'Quicksand-Light',
+        marginBottom:20,
     }
 
 

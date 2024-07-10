@@ -1,5 +1,5 @@
-import {View,Text,StyleSheet,ScrollView,Pressable,Image, Alert} from 'react-native';
-
+import {View,Text,StyleSheet,ScrollView,Pressable,Image, Alert,ActivityIndicator} from 'react-native';
+import {useState,useEffect} from 'react';
 
 
 import Item from './item';
@@ -8,14 +8,40 @@ import OurStory from './ourStory';
 import CartScreen from './cartScreen';
 
 export default function HomeScreen({navigation}){
+    let [isLoading,setIsLoading]=useState(true);
+    let [error,setError]=useState();
+    let [response,setResponse]=useState();
+
+    useEffect(()=>{
+        fetch("https://fakestoreapi.com/products")
+            .then(res=>res.json())
+            .then((result)=>{
+                setIsLoading(false);
+                setResponse(result);
+            },
+        (error)=>{
+            setIsLoading(false);
+            setError(error);
+        })
+    },[])
+
+    const getContent=()=>{
+        if(isLoading){
+            return <ActivityIndicator size ="large"/>;
+
+        }  
+    };
     
   
     return(
-        <ScrollView style={{marginTop:70}}>
+        <View style={{marginTop:20}}>
+            {getContent()}
             <TopHomeScreen/>
             <OurStory/>
+            <Item data={response} />
             
-                <View style={styles.container}>
+            
+                {/* <View style={styles.container}>
                     <Item name={"Office Wear"} description={"reversible angora cardigan"} price={"$120"} image={require("../assets/dress1.png")} keys={"1"} />
                     <Item name={"black"} description={"reversible angora cardigan"} price={"$120"} image={require("../assets/dress2.png")} keys={"2"}/>
                 </View>
@@ -33,12 +59,12 @@ export default function HomeScreen({navigation}){
                 <View style={styles.container}>
                     <Item name={"21WN"} description={"reversible angora cardigan"} price={"$120"} image={require("../assets/dress7.png")}  keys={"7"} />
                     <Item name={"lame"} description={"reversible angora cardigan"} price={"$120"} image={require("../assets/dress3.png")}  keys={"8"}/>
-                </View>
+                </View> */}
                
                 
                 
            
-        </ScrollView>
+        </View>
     )
 }
 const styles = StyleSheet.create({

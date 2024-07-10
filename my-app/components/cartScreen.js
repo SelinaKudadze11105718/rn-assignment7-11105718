@@ -17,8 +17,8 @@ export default function CartScreen({route,navigation}){
         try{
             const result=[];
             keys =await AsyncStorage.getAllKeys();
-            
             setKeys(keys);
+            
             for(const i of keys){
                 const value=await AsyncStorage.getItem(i);
                 result[i]=JSON.parse(value);
@@ -41,27 +41,24 @@ export default function CartScreen({route,navigation}){
     const removeItem = async(k)=>{
         try{
         await AsyncStorage.removeItem(k);
+        Alert.alert('REMOVED');
+        setItems((prevItem) => prevItem.filter((item) => item.ID !== k))
         return true;
         }catch(e){
             Alert.alert(e.message);
             return false;
         }
     }
-    const clearItem=function(k){
-        removeItem(k);
-    }
-    
+   
 //DATA FOR FLATLIST 
     const Data=[];
     for(var i=1;i<9;i++){
         Data.push(individualItems[i]);
         
     }
+    console.log(Data);
 
-   
 
-
-   
     return(
         
         <View style={{backgroundColor:'white'}}>
@@ -78,36 +75,34 @@ export default function CartScreen({route,navigation}){
                     if(item?.Description !== undefined && item?.Picture !== undefined && item?.name!== undefined && item?.Price !== undefined){
                         return(
                             <View style={styles.container}>
-                                <Image source={item?.Picture} style={{marginLeft:5}}/>
+                                <Image source={{uri:item?.Picture}} style={{marginLeft:5,height:200,width:200}}/>
                                 <View style={{flexDirection:'column'}}>
-                                <View style={{marginTop:50}}>
-                                    <Text style={{fontWeight:'bold',marginTop:10, fontFamily: 'Quicksand',fontSize:18}}>{item?.name}</Text>
-                                    <Text style={{marginTop:10,color:'#808080',fontSize:14, fontFamily: 'Quicksand',}}>{item?.Description}</Text>
-                                    <Text style={{marginTop:10,color:'orange',fontSize:14, fontFamily: 'Quicksand',}}>{item?.Price}</Text>
+                                <View style={{marginTop:0,height:100,width:100}}>
+                                    <Text style={{fontWeight:'bold',marginTop:10,fontSize:14}}>{item?.name}</Text>
+                                    <Text style={{marginTop:10,color:'#808080',fontSize:12,}}>{item?.Description}</Text>
+                                    <Text style={{marginTop:10,color:'orange',fontSize:12, }}>${item?.Price}</Text>
                                 </View>
                                
                                     
-                                    <Pressable onPress={removeItem} style={{marginTop:40,marginLeft:130}}>
+                                    <Pressable onPress={()=>removeItem(item?.ID)} style={{marginTop:40,marginLeft:130}}>
                                         <Image source={require("../assets/remove.png")}/>
                                     </Pressable>
                                 </View>  
                             </View>
                         )
-                    }else if(item?.Key === undefined){
+                    }else if(item?.ID === undefined){
                         
                     return(
                         <View>
-                            <Image source={item?.Picture}/>
+                            {/* <Image source={item?.Picture}/>
                             <View style={styles.text}>
+                                <Text>DATA NOT ACCESSED</Text>
                                 <Text>{item?.name}</Text>
                                 <Text>{item?.Description}</Text>
                                 <Text>{item?.Price}</Text>
-                            </View >
+                            </View > */}
                            
-                                <View>
-                                <Pressable>
-                                </Pressable>
-                            </View>
+                            
                             
                             
                         </View>
@@ -123,8 +118,10 @@ export default function CartScreen({route,navigation}){
 const styles= StyleSheet.create({
     container:{
         flexDirection: 'row',
-        gap:10,
+        gap:20,
         marginTop:50,
+        marginBottom:50,
+       
        
     },
    

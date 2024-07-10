@@ -1,19 +1,49 @@
-import {View,Text,StyleSheet,Image,ScrollView} from 'react-native';
+import {View,Text,StyleSheet,Image,ScrollView,FlatList, Alert,TouchableOpacity} from 'react-native';
+import {useState} from 'react';
+import { useNavigation } from '@react-navigation/native';
 
 import Move from './moveToCartButton';
+import Navigation from './navigation';
 
 export default function Item(props){
-    console.log(props.name);
-    console.log(props.key);
+    const navigation=useNavigation();
+    let [numColumns, setNumColumns] = useState(2);
+    const data=props.data;
+    console.log(data);
+
+   const navigateToDescriptionScreen=(item)=>{
+        // item.persist();
+       
+        
+        navigation.navigate('DescriptionScreen',{image:item.image,description:item.description,title:item.title,price:item.price});
+        
+   };
+
     return(
         <View style={styles.container}>
+            <FlatList data={data} 
+            numColumns={numColumns}
+            key={numColumns}
+            columnWrapperStyle={{gap:20}}
+            renderItem={({ item })=>(
+                
+                <View style={{flex:1,gap:20}}>
+                    <TouchableOpacity onPress={()=>navigateToDescriptionScreen(item)}>
+                        <Image source={{uri : item.image}} style={{height:150,weight:150,borde:1,borderRadius:10}} />
+                        <Text style={styles.name}>{item.title}</Text>
+                        <Text style={styles.description}>{item.description}</Text>
+                        <Text style={styles.price}>${item.price}</Text>
+                        <Move name={item.title} description={item.description} image={item.image} price={item.price} id={item.id}/>
+                    </TouchableOpacity>
+                </View>
+                
+               
+
+            )}/>
+               
             
-            <Image source={props.image} />
-            <Text style={styles.name}>{props.name}</Text>
-            <Text style={styles.description}>{props.description}</Text>
-            <Text style={styles.price}>{props.price}</Text>
-            <Move name={props.name} description={props.description} image={props.image} price={props.price} keys={props.keys}/>
         </View>
+        
     )
 }
 

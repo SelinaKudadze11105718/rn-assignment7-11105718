@@ -7,34 +7,37 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 
 export default function Move(props) {
     
-    const navigation=useNavigation([]);
+    const navigation=useNavigation();
     
 
-    // const {name}=props.name;
-    // console.log(props.name);
     const Name=props.name;
-    // console.log(props.name);
+    console.log(Name);
+
     const Pic=props.image;
-    // console.log(props.image);
+
     const  Description = props.description;
-    // console.log(props.description);
+
     const Price =props.price;
-    // console.log(props.price);
-    const Key = props.keys;
-    const keys=String(Key)
-    // console.log(props.keys);
+
+    const Id=props.id;
+
+    const ID =String(Id);
+
+    // const Key = props.keys;
+    // const keys=String(Key)
+  
 
     const ItemData={
         name:Name,
         Picture:Pic,
         Description:Description,
         Price:Price,
-        Key: keys,
+        ID:ID,
     }
 
     
     const saveItem= async()=>{
-        await AsyncStorage.setItem(keys,JSON.stringify(ItemData))
+        await AsyncStorage.setItem(ID,JSON.stringify(ItemData))
        
     };
     
@@ -48,7 +51,7 @@ export default function Move(props) {
         saveItem();
         // retrieveAllItems();
 
-        return navigation.navigate('Cart',{name:Name,image:Pic,description:Description,price:Price,Key:Key});
+        return navigation.navigate('Cart');
         
 
      }

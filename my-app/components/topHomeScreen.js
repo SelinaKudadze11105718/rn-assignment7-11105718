@@ -18,6 +18,7 @@ const styles= StyleSheet.create({
         flexDirection:'row',
         gap:90,
         marginLeft:20,
+        marginTop:50,
     },
     searchBag:{
         flexDirection:'row',
