@@ -18,9 +18,9 @@ export default function DescriptionScreen(){
         <View style={{backgroundColor:'white'}}>
             <TopHomeScreen/>
 
-            <View style={{marginTop:20,height:100}}>
+            <ScrollView style={{marginTop:20,height:700}}>
             
-                    <Image source={{uri : image}} style={{height:350,weight:350,borde:1,borderRadius:30}} />
+                    <Image source={{uri : image}} style={{height:350,weight:350,borde:1,borderRadius:30,marginLeft:20,marginRight:20}} />
                     <Text style={styles.name}>
                         {title.substring(0,20)}
                         {'\n'}
@@ -29,17 +29,17 @@ export default function DescriptionScreen(){
                         {title.substring(40)}
                         
                        </Text>
-                    <Image source={require('../assets/Export.png')} style={{position:'absolute',left:340,top:420}}/>
-                    <Text style={{marginRight:20,fontFamily:'Quicksand',fontSize:14}}> {description.substring(0,50)}</Text>
+                    <Image source={require('../assets/Export.png')} style={{position:'absolute',left:340,top:390}}/>
+                    <Text style={{marginRight:20,fontFamily:'Quicksand',fontSize:14,marginLeft:20,marginRight:20}}> {description.substring(0,50)}</Text>
                     <Text style={styles.price}>${price}</Text>
-                    <Text style={{textAlign:'left',marginLeft:10,fontSize:15,fontFamily:'Quicksand-Bold'}}>DESCRIPTION</Text>
+                    <Text style={{textAlign:'left',marginLeft:10,fontSize:15,fontFamily:'Quicksand-Bold',marginLeft:20,marginRight:20}}>DESCRIPTION</Text>
                     <Text style={styles.description}>{description}</Text>
                     
-            </View>
+            </ScrollView>
             <View style={styles.bottom}>
-                <Image source={require('../assets/Plus.png')}/>
-                <Text style={{color:'white',fontFamily:'Quicksand',textAlign:'center'}}>ADD TO BASKET </Text>
-                <Image source={require('../assets/Heart.png')} style={{position:'absolute',left:340}}/>
+                <Image source={require('../assets/Plus.png')} style={{tintColor:'white'}}/>
+                <Text style={{color:'white',fontFamily:'Quicksand',textAlign:'center',marginTop:20}}>ADD TO BASKET </Text>
+                <Image source={require('../assets/Heart.png')} style={{position:'absolute',left:340,tintColor:'white'}}/>
 
             </View>
             
@@ -59,16 +59,20 @@ const styles= StyleSheet.create({
         textAlign: 'left',
         fontFamily: 'Quicksand-Bold',
         marginLeft:10,
+        marginLeft:20,
+        marginRight:20,
 
     },
     description:{
         textAlign: 'left',
         left:10,
-        marginRight:40,
+        // marginRight:40,
         fontFamily: 'Quicksand-Regular',
         marginBottom:10,
         fontSize:16,
         marginTop:10,
+        marginLeft:20,
+        marginRight:20,
     },
 
     price:{
@@ -79,13 +83,15 @@ const styles= StyleSheet.create({
         marginTop:10,
         textAlign: 'left',
         fontFamily: 'Quicksand-Regular',
+        marginLeft:20,
+        marginRight:20,
     },
     bottom:{
-        backgroundColor:'#555555',
+        backgroundColor:'black',
         height:60,
         width:400,
-        position: 'relative',
-        top:550,
+        position: 'absolute',
+        top:750,
         flexDirection:'row',
         gap:40,
     }
