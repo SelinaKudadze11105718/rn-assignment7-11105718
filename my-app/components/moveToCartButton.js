@@ -18,9 +18,7 @@ export default function Move(props) {
     const  Description = props.description;
 
     const Price =props.price;
-
     const Id=props.id;
-
     const ID =String(Id);
 
     // const Key = props.keys;

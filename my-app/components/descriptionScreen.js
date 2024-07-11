@@ -5,6 +5,7 @@ import { useFonts } from 'expo-font';
 
 
 import TopHomeScreen from './topHomeScreen';
+import Delivery from './delivery';
 
 export default function DescriptionScreen(){
     const route = useRoute();
@@ -37,9 +38,9 @@ export default function DescriptionScreen(){
                     
             </ScrollView>
             <View style={styles.bottom}>
-                <Image source={require('../assets/Plus.png')} style={{tintColor:'white'}}/>
-                <Text style={{color:'white',fontFamily:'Quicksand',textAlign:'center',marginTop:20}}>ADD TO BASKET </Text>
-                <Image source={require('../assets/Heart.png')} style={{position:'absolute',left:340,tintColor:'white'}}/>
+                <Image source={require('../assets/Plus.png')} style={{tintColor:'white',top:15}}/>
+                <Text style={{color:'white',fontFamily:'Quicksand',textAlign:'center',marginTop:20,right:30}}>ADD TO BASKET </Text>
+                <Image source={require('../assets/Heart.png')} style={{position:'absolute',left:340,tintColor:'white',top:15}}/>
 
             </View>
             
