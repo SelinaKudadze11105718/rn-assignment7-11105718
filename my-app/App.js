@@ -14,6 +14,7 @@ import HomeScreen from './components/homeScreen';
 import Navigation from './components/navigation';
 import CartScreen from "./components/cartScreen";
 import DescriptionScreen from "./components/descriptionScreen";
+import TopHomeScreen from './components/topHomeScreen';
 
 // const Stack= createNativeStackNavigator();
 const Drawer = createDrawerNavigator();
@@ -31,6 +32,7 @@ export default function App() {
                 <Drawer.Screen name="Home" component={HomeScreen}/>
                 <Drawer.Screen name="Cart" component={CartScreen}/>
                 <Drawer.Screen name="DescriptionScreen" component={DescriptionScreen}/>
+                <Drawer.Screen name="TopScreen" component={TopHomeScreen}/>
             </Drawer.Navigator>
         </NavigationContainer>
       

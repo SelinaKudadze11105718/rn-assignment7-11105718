@@ -1,9 +1,15 @@
-import {View,Text,StyleSheet,Image} from 'react-native';
+import {View,Text,StyleSheet,Image,Pressable} from 'react-native';
+import { useNavigation } from '@react-navigation/native';
 
 export default function TopHomeScreen(){
+    const navigation = useNavigation();
     return(
         <View  style={styles.container}>
-            <Image source={require('../assets/Menu.png')}/>
+            <Pressable onPress={()=>{
+                navigation.toggleDrawer();
+            }}>
+                <Image source={require('../assets/Menu.png')}/>
+            </Pressable>
             <Image  source={require('../assets/Logo.png')}/>
             <View style={styles.searchBag}>
                 <Image source={require('../assets/Search.png')}/>

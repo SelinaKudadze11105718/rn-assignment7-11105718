@@ -61,7 +61,7 @@ export default function CartScreen({route,navigation}){
 
     return(
         
-        <View style={{backgroundColor:'white'}}>
+        <View style={{backgroundColor:'white',height:700}}>
             <View style={{flexDirection:'row',gap:100,marginTop:50,marginLeft:140}}>
                 <Image source={require('../assets/Logo.png')}/>
                 <Image source={require('../assets/Search.png')}/>
@@ -77,13 +77,11 @@ export default function CartScreen({route,navigation}){
                             <View style={styles.container}>
                                 <Image source={{uri:item?.Picture}} style={{marginLeft:5,height:200,width:200}}/>
                                 <View style={{flexDirection:'column'}}>
-                                <View style={{marginTop:0,height:100,width:100}}>
-                                    <Text style={{fontWeight:'bold',marginTop:10,fontSize:14,fontFamily:'Quicksand-Regular'}}>{item?.name}</Text>
-                                    <Text style={{marginTop:10,color:'#808080',fontSize:12,fontFamily:'Quicksand-Regular'}}>{item?.Description}</Text>
-                                    <Text style={{marginTop:10,color:'orange',fontSize:12,fontFamily:'Quicksand-Regular' }}>${item?.Price}</Text>
-                                </View>
-                               
-                                    
+                                    <View style={{marginTop:0,height:100,width:100}}>
+                                        <Text style={{fontWeight:'bold',marginTop:10,fontSize:14,fontFamily:'Quicksand-Regular'}}>{item?.name}</Text>
+                                        <Text style={{marginTop:10,color:'#808080',fontSize:12,fontFamily:'Quicksand-Regular'}}>{item?.Description}</Text>
+                                        <Text style={{marginTop:10,color:'orange',fontSize:12,fontFamily:'Quicksand-Regular' }}>${item?.Price}</Text>
+                                    </View>
                                     <Pressable onPress={()=>removeItem(item?.ID)} style={{marginTop:40,marginLeft:130}}>
                                         <Image source={require("../assets/remove.png")}/>
                                     </Pressable>
@@ -94,22 +92,21 @@ export default function CartScreen({route,navigation}){
                         
                     return(
                         <View>
-                            {/* <Image source={item?.Picture}/>
-                            <View style={styles.text}>
-                                <Text>DATA NOT ACCESSED</Text>
-                                <Text>{item?.name}</Text>
-                                <Text>{item?.Description}</Text>
-                                <Text>{item?.Price}</Text>
-                            </View > */}
-                           
-                            
-                            
                             
                         </View>
                     )
                     }
                 }}
             /> 
+            <View style={{position:'absolute',top:700,backgroundColor:'white',width:400,height:100}} >
+                <Text style={{fontFamily:'Quicksand',fontSize:14,top:20,left:10}}>EST. TOTAL</Text>
+                <Text style={{fontFamily:'Quicksand',fontSize:20,left:300,color:'orange'}}>$240</Text>
+            </View>
+             <View style={styles.bottom}>
+                <Image source={require('../assets/shoppingBag.png')} style={{tintColor:'white',position:'absolute',left:120,top:15}}/>
+                <Text style={{color:'white',fontFamily:'Quicksand',textAlign:'center',marginTop:20}}>CHECKOUT</Text>
+               
+            </View>
 
         </View>
     )
@@ -121,8 +118,18 @@ const styles= StyleSheet.create({
         gap:20,
         marginTop:50,
         marginBottom:50,
+        
        
        
     },
+    bottom:{
+        backgroundColor:'black',
+        height:60,
+        width:400,
+        position: 'absolute',
+        top:750,
+       
+       
+    }
    
 })
