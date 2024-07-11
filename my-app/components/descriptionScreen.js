@@ -31,10 +31,11 @@ export default function DescriptionScreen(){
                         
                        </Text>
                     <Image source={require('../assets/Export.png')} style={{position:'absolute',left:340,top:390}}/>
-                    <Text style={{marginRight:20,fontFamily:'Quicksand',fontSize:14,marginLeft:20,marginRight:20}}> {description.substring(0,50)}</Text>
+                    <Text style={{marginRight:20,fontFamily:'Quicksand',fontSize:14,marginLeft:20,marginRight:20,color:'#808080'}}> {description.substring(0,50)}</Text>
                     <Text style={styles.price}>${price}</Text>
                     <Text style={{textAlign:'left',marginLeft:10,fontSize:15,fontFamily:'Quicksand-Bold',marginLeft:20,marginRight:20}}>DESCRIPTION</Text>
                     <Text style={styles.description}>{description}</Text>
+                    <Delivery/>
                     
             </ScrollView>
             <View style={styles.bottom}>
@@ -43,6 +44,7 @@ export default function DescriptionScreen(){
                 <Image source={require('../assets/Heart.png')} style={{position:'absolute',left:340,tintColor:'white',top:15}}/>
 
             </View>
+            
             
             
         </View>
@@ -74,6 +76,7 @@ const styles= StyleSheet.create({
         marginTop:10,
         marginLeft:20,
         marginRight:20,
+        color:'#808080',
     },
 
     price:{
