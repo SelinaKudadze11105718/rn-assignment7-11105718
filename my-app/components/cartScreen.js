@@ -41,7 +41,7 @@ export default function CartScreen({route,navigation}){
     const removeItem = async(k)=>{
         try{
         await AsyncStorage.removeItem(k);
-        Alert.alert('REMOVED');
+        // Alert.alert('REMOVED');
         setItems((prevItem) => prevItem.filter((item) => item.ID !== k))
         return true;
         }catch(e){

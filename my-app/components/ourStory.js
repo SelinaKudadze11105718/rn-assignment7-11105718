@@ -30,7 +30,7 @@ const styles= StyleSheet.create({
     },
     text:{
         fontSize:25,
-        fontFamily:'Quicksand-Bold',
+        fontFamily:'Quicksand-Regular',
         marginBottom:20,
         fontWeight:'bold',
     }

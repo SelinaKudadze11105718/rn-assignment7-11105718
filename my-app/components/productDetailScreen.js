@@ -4,10 +4,11 @@ import { useFonts } from 'expo-font';
 
 
 
+
 import TopHomeScreen from './topHomeScreen';
 import Delivery from './delivery';
 
-export default function DescriptionScreen(){
+export default function ProductDetailScreen(){
     const route = useRoute();
     const {image,description,price,title}=route.params || {};
    

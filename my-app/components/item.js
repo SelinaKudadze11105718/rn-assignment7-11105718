@@ -13,7 +13,7 @@ export default function Item(props){
     
 
    const navigateToDescriptionScreen=(item)=>{
-        navigation.navigate('DescriptionScreen',{image:item.image,description:item.description,title:item.title,price:item.price});
+        navigation.navigate('Product Detail',{image:item.image,description:item.description,title:item.title,price:item.price});
    };
 
     return(
