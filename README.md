@@ -15,7 +15,7 @@ Promises were dealt with using .then() method.
 ![](IMG_8227.PNG)
 ![](IMG_8228.PNG)
 
-### CHECKOUT SCREEN
+### CART SCREEN
 ![](IMG_8231.PNG)
 
 ### DRAWER NAVIGATION
